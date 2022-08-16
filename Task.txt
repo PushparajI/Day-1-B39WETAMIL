@@ -1,0 +1,31 @@
+ HTTP 1.1
+
+1.It supports connection reuse i.e. for every TCP connection there could be multiple requests and 
+responses, and pipelining where the client can request several resources from the server at once. 
+However, pipelining was hard to implement due to issues such as head-of-line blocking and was not 
+a feasible solution
+
+2.Expands on the caching support by using additional headers like cache-control, conditional headers 
+like If-Match and by using entity tags.
+
+3HTTP/1.1 provides faster delivery of web pages and reduces web traffic as compared to HTTP/1.0. 
+However, TCP starts slowly and with domain sharding, connection reuse and pipelining, there is an 
+increased risk of network congestion.
+
+4. Web browser makes several parallel request for page contents: HTML, image, Style.
+
+
+HTTP 2
+
+1.Uses multiplexing, where over a single TCP connection resources to be delivered are interleaved 
+and arrive at the client almost at the same time. It is done using streams which can be prioritized, 
+can have dependencies and individual flow control. It also provides a feature called server push 
+that allows the server to send data that the client will need but has not yet requested.
+
+2.HTTP/2 does not change much in terms of caching. With the server push feature if the client finds 
+the resources are already present in the cache, it can cancel the pushed stream.
+
+3.HTTP/2 utilizes multiplexing and server push to effectively reduce the page load time by a greater 
+margin along with being less sensitive to network delays.
+
+4. Web browser makes one TCP connection with requests for all page contents in HTTP2 streams.
